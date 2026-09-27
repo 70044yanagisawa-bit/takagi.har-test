@@ -3,338 +3,254 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>目標達成プログラム | 本気で変わりたい人のためのコーチング</title>
-  <meta name="description" content="1,000名以上へのコーチング実績をもとに、あなたの目標達成に伴走する「目標達成プログラム」。自己理解から行動設計、習慣化まで一貫してサポートします。">
-  <meta property="og:title" content="目標達成プログラム">
-  <meta property="og:description" content="1,000名以上へのコーチング実績をもとに、あなたの目標達成に伴走するコーチングプログラム。">
+  <title>目標達成プログラム | 髙木 晴</title>
+  <meta name="description" content="決めたことを、やり切れる自分へ。1,000名以上にコーチングを提供してきた髙木晴による、マンツーマンの目標達成プログラム。">
+  <meta property="og:title" content="目標達成プログラム | 髙木 晴">
+  <meta property="og:description" content="決めたことを、やり切れる自分へ。髙木晴によるマンツーマンの目標達成プログラム。">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="images/hero.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="is-loading">
+
+<!-- ============ OPENING ============ -->
+<div class="opening" id="opening" aria-hidden="true">
+  <p class="opening__text">
+    <span class="mask"><span>GOAL ACHIEVEMENT</span></span>
+    <span class="mask"><span>PROGRAM</span></span>
+  </p>
+  <span class="opening__bar"></span>
+</div>
 
 <!-- ============ HEADER ============ -->
 <header class="header" id="header">
-  <div class="header__inner">
-    <a href="#top" class="header__logo">
-      <span class="header__logo-en">GOAL ACHIEVEMENT</span>
-      <span class="header__logo-ja">目標達成プログラム</span>
-    </a>
-    <nav class="nav" id="nav">
-      <ul class="nav__list">
-        <li><a href="#about">プログラムについて</a></li>
-        <li><a href="#feature">特徴</a></li>
-        <li><a href="#flow">受講の流れ</a></li>
-        <li><a href="#profile">コーチ紹介</a></li>
-        <li><a href="#faq">よくある質問</a></li>
-      </ul>
-      <a href="#contact" class="btn btn--accent nav__cta">無料相談に申し込む</a>
-    </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false">
-      <span></span><span></span>
-    </button>
-  </div>
+  <a href="#top" class="header__logo">
+    <span class="header__logo-en">GOAL ACHIEVEMENT</span>
+    <span class="header__logo-sub">by HARU TAKAGI</span>
+  </a>
+  <nav class="nav" id="nav">
+    <ul class="nav__list">
+      <li><a href="#concept"><span class="nav__en">CONCEPT</span><span class="nav__ja">想い</span></a></li>
+      <li><a href="#program"><span class="nav__en">PROGRAM</span><span class="nav__ja">プログラム</span></a></li>
+      <li><a href="#profile"><span class="nav__en">PROFILE</span><span class="nav__ja">プロフィール</span></a></li>
+      <li><a href="#message"><span class="nav__en">MESSAGE</span><span class="nav__ja">メッセージ</span></a></li>
+    </ul>
+  </nav>
+  <button class="menu-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
+    <span></span><span></span>
+  </button>
 </header>
 
 <main id="top">
 
   <!-- ============ HERO ============ -->
   <section class="hero">
-    <div class="hero__inner">
-      <div class="hero__text">
-        <p class="hero__label">GOAL ACHIEVEMENT PROGRAM</p>
-        <h1 class="hero__title">
-          <span class="js-split">本気の目標は、</span><br>
-          <span class="js-split">ひとりで追わなくていい。</span>
-        </h1>
-        <p class="hero__lead">
-          1,000名以上へのコーチング実績をもとに、<br class="pc-only">
-          あなたの「こうなりたい」を「こうなった」に変える伴走型プログラム。
-        </p>
-        <div class="hero__btns">
-          <a href="#contact" class="btn btn--accent">無料相談に申し込む</a>
-          <a href="#about" class="btn btn--line">プログラムを見る</a>
-        </div>
-      </div>
-      <div class="hero__visual">
-        <img class="photo photo--hero" src="images/hero.jpg" alt="青空の下で瞑想するコーチ" width="1045" height="1567">
-      </div>
+    <div class="hero__bg">
+      <img src="images/hero.jpg" alt="" width="1045" height="1567">
     </div>
-    <div class="hero__scroll">SCROLL</div>
-  </section>
-
-  <!-- ============ WORRIES ============ -->
-  <section class="section worries">
-    <div class="container">
-      <div class="section-head section-head--center">
-        <p class="section-head__en">WORRIES</p>
-        <h2 class="section-head__ja">こんなお悩みはありませんか？</h2>
-      </div>
-      <ul class="worries__list">
-        <li class="fade-up">目標を立てても、いつも途中で止まってしまう</li>
-        <li class="fade-up">やりたいことはあるのに、何から始めればいいかわからない</li>
-        <li class="fade-up">仕事もプライベートも、今のままでいいのかモヤモヤしている</li>
-        <li class="fade-up">自分の強みや本当に大切にしたいことが言葉にできない</li>
-        <li class="fade-up">体づくりや挑戦を、最後までやり切る自信がない</li>
-        <li class="fade-up">一人だと甘えてしまい、行動が続かない</li>
-      </ul>
-      <p class="worries__answer fade-up">
-        その原因は、<br class="sp-only"><strong>意志の弱さではありません。</strong><br>
-        目標の立て方と、<br class="sp-only">行動を続ける仕組みを変えれば、<br class="sp-only">人は必ず変われます。
+    <div class="hero__content">
+      <h1 class="hero__title">
+        <span class="mask"><span>GOAL</span></span>
+        <span class="mask"><span>ACHIEVEMENT</span></span>
+        <span class="mask"><span>PROGRAM</span></span>
+      </h1>
+      <p class="hero__copy">
+        <span class="mask"><span>決めたことを、</span></span>
+        <span class="mask"><span>やり切れる自分へ。</span></span>
       </p>
+      <p class="hero__name"><span>目標達成コーチ</span>髙木 晴</p>
     </div>
+    <a href="#concept" class="hero__scroll" aria-label="下へスクロール">
+      <span>SCROLL</span>
+    </a>
   </section>
 
-  <!-- ============ ABOUT ============ -->
-  <section class="section about" id="about">
-    <div class="container about__inner">
-      <div class="about__text">
-        <div class="section-head">
-          <p class="section-head__en">ABOUT</p>
-          <h2 class="section-head__ja">目標達成プログラムとは</h2>
+  <!-- ============ CONCEPT ============ -->
+  <section class="concept" id="concept">
+    <div class="wrap concept__inner">
+      <div class="concept__text">
+        <div class="heading">
+          <p class="heading__en js-letters">CONCEPT</p>
+          <h2 class="heading__ja" data-reveal>想い</h2>
         </div>
-        <p class="about__catch fade-up">
-          「なりたい自分」を明確にし、<br>
-          「やり切れる自分」をつくる。
+        <p class="concept__statement">
+          <span class="mask"><span>目標を立てるより、</span></span>
+          <span class="mask"><span>やり切るほうが、</span></span>
+          <span class="mask"><span>ずっと難しい。</span></span>
         </p>
-        <p class="fade-up">
-          目標達成プログラムは、マンツーマンのコーチングを通じて、あなたが心から望むゴールを見つけ、そこへ到達するまで伴走するプログラムです。
-        </p>
-        <p class="fade-up">
-          自己理解を深めて「本当に叶えたい目標」を定め、現在地とのギャップから逆算した行動計画を設計。日々の実践をコーチと振り返りながら、行動が自然と続く状態をつくっていきます。
-        </p>
-        <p class="fade-up">
-          ビジネス、キャリア、ボディメイク、スポーツ。ジャンルは問いません。あなたの挑戦を、一番近くで支えます。
-        </p>
+        <div class="concept__body">
+          <p data-reveal>忙しい日が続いたり、思うように結果が出なかったり。途中で手が止まるのは、意志が弱いからではありません。目標の置き方と、続けるための仕組みが、今のあなたに合っていないだけです。</p>
+          <p data-reveal>目標達成プログラムは、あなたが本当に叶えたいことを一緒に言葉にして、そこへ向かう毎日の行動を設計し、やり切るところまで付き合うマンツーマンのコーチングです。</p>
+          <p data-reveal>仕事でも、キャリアでも、体づくりでも。テーマは問いません。</p>
+        </div>
       </div>
-      <div class="about__visual fade-up">
-        <img class="photo photo--about" src="images/about.jpg" alt="芝生の上で呼吸を整えるコーチ" width="1600" height="900" loading="lazy">
-      </div>
+      <figure class="concept__photo img-reveal" data-parallax="0.08">
+        <img src="images/about.jpg" alt="芝生の上で呼吸を整える髙木晴" width="1600" height="900" loading="lazy">
+      </figure>
     </div>
   </section>
 
-  <!-- ============ NUMBERS ============ -->
-  <section class="numbers">
-    <div class="container numbers__inner">
-      <div class="numbers__item fade-up">
-        <p class="numbers__label">コーチング提供実績</p>
-        <p class="numbers__value"><span class="js-count" data-to="1000">1,000</span><small>名以上</small></p>
+  <!-- ============ PROGRAM ============ -->
+  <section class="program" id="program">
+    <div class="wrap">
+      <div class="heading heading--light">
+        <p class="heading__en js-letters">PROGRAM</p>
+        <h2 class="heading__ja" data-reveal>プログラムの流れ</h2>
       </div>
-      <div class="numbers__item fade-up">
-        <p class="numbers__label">対応してきた方</p>
-        <p class="numbers__value numbers__value--text">経営者・会社員・公務員<br>アスリート・個人事業主</p>
-      </div>
-      <div class="numbers__item fade-up">
-        <p class="numbers__label">ベストボディジャパン</p>
-        <p class="numbers__value numbers__value--text">初出場で<br>地方大会グランプリ</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- ============ FEATURE ============ -->
-  <section class="section feature" id="feature">
-    <div class="container">
-      <div class="section-head section-head--center">
-        <p class="section-head__en">FEATURES</p>
-        <h2 class="section-head__ja">プログラムの3つの特徴</h2>
+      <!-- ロードマップ（PC） -->
+      <div class="roadmap" id="roadmap">
+        <svg class="roadmap__svg" viewBox="0 0 1000 420" aria-hidden="true">
+          <defs>
+            <linearGradient id="roadGrad" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+              <stop offset=".35" stop-color="#fff" stop-opacity=".35"/>
+              <stop offset="1" stop-color="#fff" stop-opacity=".9"/>
+            </linearGradient>
+          </defs>
+          <path class="roadmap__path" d="M 110 360 C 330 330, 520 250, 890 70"/>
+        </svg>
+        <div class="roadmap__circle roadmap__circle--start">現状の<br>自分</div>
+        <div class="roadmap__circle roadmap__circle--goal">理想の<br>自分</div>
+        <div class="roadmap__node" data-at="0.2"><span class="roadmap__dot"></span><span class="roadmap__label"><small>01</small>自己理解</span></div>
+        <div class="roadmap__node" data-at="0.4"><span class="roadmap__dot"></span><span class="roadmap__label"><small>02</small>ゴール設定</span></div>
+        <div class="roadmap__node" data-at="0.6"><span class="roadmap__dot"></span><span class="roadmap__label"><small>03</small>行動設計</span></div>
+        <div class="roadmap__node" data-at="0.8"><span class="roadmap__dot"></span><span class="roadmap__label"><small>04</small>習慣化</span></div>
       </div>
-      <div class="feature__list">
-        <article class="feature__card fade-up">
-          <p class="feature__num">01</p>
-          <h3 class="feature__title">自己理解から始める<br>「本当に叶えたい目標」</h3>
-          <p>価値観や強み、これまでの経験を深く掘り下げ、他人の期待ではなく、あなた自身が心から望むゴールを言語化します。ゴールが本物になるから、行動に迷いがなくなります。</p>
-        </article>
-        <article class="feature__card fade-up">
-          <p class="feature__num">02</p>
-          <h3 class="feature__title">ゴールから逆算した<br>行動設計</h3>
-          <p>理想の未来と現在地のギャップを明らかにし、「今週なにをやるか」まで落とし込みます。リクルートで培った営業・目標管理の考え方をベースに、実行できる計画をつくります。</p>
-        </article>
-        <article class="feature__card fade-up">
-          <p class="feature__num">03</p>
-          <h3 class="feature__title">やり切るまで続く<br>伴走サポート</h3>
-          <p>定期セッションとセッション間のフォローで、行動の継続を支えます。アスリートとして、ボディメイク競技者として自らも挑戦を続けるコーチが、最後まで一緒に走ります。</p>
-        </article>
-      </div>
-    </div>
-  </section>
 
-  <!-- ============ TARGET ============ -->
-  <section class="section target">
-    <div class="container target__inner">
-      <div class="section-head">
-        <p class="section-head__en">FOR YOU</p>
-        <h2 class="section-head__ja">こんな方におすすめです</h2>
-      </div>
-      <div class="target__grid">
-        <div class="target__item fade-up">
-          <p class="target__tag">BUSINESS</p>
-          <p>営業成績や昇進、独立・起業など、仕事で結果を出したい方</p>
-        </div>
-        <div class="target__item fade-up">
-          <p class="target__tag">CAREER</p>
-          <p>転職やキャリアチェンジを考えていて、自分の軸を明確にしたい方</p>
-        </div>
-        <div class="target__item fade-up">
-          <p class="target__tag">BODY MAKE</p>
-          <p>ボディメイクや大会出場など、体づくりの目標をやり切りたい方</p>
-        </div>
-        <div class="target__item fade-up">
-          <p class="target__tag">ATHLETE</p>
-          <p>競技でのパフォーマンス向上や、セカンドキャリアを考えるアスリートの方</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FLOW ============ -->
-  <section class="section flow" id="flow">
-    <div class="container">
-      <div class="section-head section-head--center">
-        <p class="section-head__en">FLOW</p>
-        <h2 class="section-head__ja">受講の流れ</h2>
-      </div>
-      <ol class="flow__list">
-        <li class="flow__item fade-up">
-          <p class="flow__step">STEP 01</p>
-          <h3>無料相談のお申し込み</h3>
-          <p>下記フォームよりお気軽にお申し込みください。日程調整のご連絡をいたします。</p>
+      <ol class="steps">
+        <li class="steps__item" data-reveal>
+          <p class="steps__num">01 <span>KNOW</span></p>
+          <h3>自己理解</h3>
+          <p>大事にしている価値観、得意なこと、これまでの経験。対話を重ねて、自分でも気づいていなかった本音を言葉にします。</p>
         </li>
-        <li class="flow__item fade-up">
-          <p class="flow__step">STEP 02</p>
-          <h3>無料相談（オンライン）</h3>
-          <p>現状やお悩み、叶えたいことをお伺いし、プログラムでできることをご説明します。</p>
+        <li class="steps__item" data-reveal>
+          <p class="steps__num">02 <span>DECIDE</span></p>
+          <h3>ゴール設定</h3>
+          <p>誰かの期待ではなく、自分が本当に達成したい目標を決めます。心から望むゴールほど、行動は続きます。</p>
         </li>
-        <li class="flow__item fade-up">
-          <p class="flow__step">STEP 03</p>
-          <h3>ゴール設定・計画づくり</h3>
-          <p>自己理解を深め、本当に叶えたい目標と、そこへ向かう行動計画を一緒につくります。</p>
+        <li class="steps__item" data-reveal>
+          <p class="steps__num">03 <span>DESIGN</span></p>
+          <h3>行動設計</h3>
+          <p>理想と今の差を見える化して、「今週なにをやるか」まで落とし込みます。</p>
         </li>
-        <li class="flow__item fade-up">
-          <p class="flow__step">STEP 04</p>
-          <h3>実践と定期セッション</h3>
-          <p>日々の行動を振り返り、改善を重ねながら、目標達成までコーチが伴走します。</p>
+        <li class="steps__item" data-reveal>
+          <p class="steps__num">04 <span>KEEP</span></p>
+          <h3>習慣化</h3>
+          <p>セッションごとに振り返りと修正を繰り返し、行動が当たり前に続く状態をつくります。</p>
         </li>
       </ol>
     </div>
   </section>
 
-  <!-- ============ PROFILE ============ -->
-  <section class="section profile" id="profile">
-    <div class="container profile__inner">
-      <div class="profile__visual fade-up">
-        <img class="photo photo--profile" src="images/profile.jpg" alt="ベストボディジャパン出場時のコーチ" width="384" height="576" loading="lazy">
+  <!-- ============ RESULT BAND ============ -->
+  <section class="band">
+    <div class="band__bg" data-parallax="0.15">
+      <img src="images/gallery-hyrox.jpg" alt="" width="1044" height="1566" loading="lazy">
+    </div>
+    <div class="wrap band__inner">
+      <div class="band__count" data-reveal>
+        <p class="band__num"><span class="js-count" data-to="1000">1,000</span><span class="band__plus">+</span></p>
+        <p class="band__label">これまでにコーチングを提供した人数</p>
       </div>
-      <div class="profile__text">
-        <div class="section-head">
-          <p class="section-head__en">PROFILE</p>
-          <h2 class="section-head__ja">コーチ紹介</h2>
-        </div>
-        <p class="profile__name fade-up">
-          <!-- お名前を入れてください -->
-          <span class="profile__name-ja">（お名前）</span>
-          <span class="profile__name-en">(NAME)</span>
-        </p>
-        <p class="profile__role fade-up">目標達成コーチ ／ フィットネスコーチ</p>
-        <p class="profile__origin fade-up">東京都府中市出身</p>
+      <ul class="band__tags" data-reveal>
+        <li>経営者</li><li>公務員</li><li>会社員</li><li>アスリート</li><li>個人事業主</li>
+      </ul>
+    </div>
+  </section>
 
-        <dl class="history fade-up">
-          <dt>SPORTS</dt>
-          <dd>
-            <ul>
-              <li>小柳小まむし坂サッカークラブ</li>
-              <li>浅間中学校<span>東京都選抜のキャプテンとして国際大会に出場</span></li>
-              <li>都立駒場高校<span>キャプテンを務め、東京都ベスト8</span></li>
-              <li>日本体育大学 体育学部 体育学科<span>選手兼主務として活動</span></li>
-            </ul>
-          </dd>
-          <dt>CAREER</dt>
-          <dd>
-            <ul>
-              <li>新卒で株式会社リクルートに入社</li>
-              <li>株式会社ミズカラ（旧GOAL-B）との半年間の兼業を経て、独立</li>
-              <li>コーチングセールス、自己理解プログラムのコーチとして、1,000名以上にコーチングを提供<span>経営者、公務員、会社員、アスリート、個人事業主など様々な方を支援</span></li>
-            </ul>
-          </dd>
-          <dt>CHALLENGE</dt>
-          <dd>
-            <ul>
-              <li>ベストボディジャパンに出場し、初出場で地方大会グランプリを獲得</li>
-              <li>HYROX MEN Single Pro に挑戦</li>
-              <li>フィットネスコーチとしても活動</li>
-            </ul>
-          </dd>
+  <!-- ============ PROFILE ============ -->
+  <section class="profile" id="profile">
+    <div class="wrap profile__inner">
+      <div class="profile__side">
+        <div class="heading">
+          <p class="heading__en js-letters">PROFILE</p>
+          <h2 class="heading__ja" data-reveal>プロフィール</h2>
+        </div>
+        <figure class="profile__photo img-reveal">
+          <img src="images/profile.jpg" alt="ベストボディジャパン出場時の髙木晴" width="384" height="576" loading="lazy">
+        </figure>
+      </div>
+      <div class="profile__main">
+        <p class="profile__name" data-reveal>髙木 晴<span>HARU TAKAGI</span></p>
+        <p class="profile__role" data-reveal>目標達成コーチ ／ フィットネスコーチ<br>東京都府中市出身</p>
+
+        <dl class="history">
+          <div class="history__row" data-reveal>
+            <dt>SPORTS</dt>
+            <dd>
+              <ul>
+                <li>小柳小まむし坂サッカークラブ</li>
+                <li>浅間中学校<small>東京都選抜のキャプテンとして国際大会に出場</small></li>
+                <li>都立駒場高校<small>キャプテンとして東京都ベスト8</small></li>
+                <li>日本体育大学 体育学部 体育学科<small>選手兼主務として活動</small></li>
+              </ul>
+            </dd>
+          </div>
+          <div class="history__row" data-reveal>
+            <dt>CAREER</dt>
+            <dd>
+              <ul>
+                <li>新卒で株式会社リクルートに入社</li>
+                <li>株式会社ミズカラ（旧GOAL-B）との半年間の兼業を経て、独立</li>
+                <li>コーチングセールス、自己理解プログラムのコーチとして1,000名以上にコーチングを提供<small>経営者、公務員、会社員、アスリート、個人事業主など</small></li>
+              </ul>
+            </dd>
+          </div>
+          <div class="history__row" data-reveal>
+            <dt>CHALLENGE</dt>
+            <dd>
+              <ul>
+                <li>ベストボディジャパン 初出場で地方大会グランプリ</li>
+                <li>HYROX MEN Single Pro に挑戦</li>
+                <li>フィットネスコーチとしても活動</li>
+              </ul>
+            </dd>
+          </div>
         </dl>
       </div>
     </div>
   </section>
 
-  <!-- ============ GALLERY ============ -->
-  <section class="gallery">
+  <!-- ============ GALLERY (marquee) ============ -->
+  <section class="gallery" aria-label="フォトギャラリー">
     <div class="gallery__track">
-      <figure class="gallery__item">
-        <img class="photo photo--gallery photo--icebath" src="images/gallery-icebath.jpg" alt="アイスバスで笑顔のコーチ" width="1108" height="1477" loading="lazy">
-        <figcaption>COLD PLUNGE</figcaption>
-      </figure>
-      <figure class="gallery__item">
-        <img class="photo photo--gallery photo--hyrox" src="images/gallery-hyrox.jpg" alt="HYROXのレースに挑むコーチ" width="1044" height="1566" loading="lazy">
-        <figcaption>HYROX</figcaption>
-      </figure>
+      <div class="gallery__set">
+        <img src="images/gallery-icebath.jpg" alt="アイスバスで笑う髙木晴" loading="lazy">
+        <img src="images/about.jpg" alt="芝生で集中する髙木晴" loading="lazy">
+        <img src="images/gallery-hyrox.jpg" alt="HYROXのレース中の髙木晴" loading="lazy">
+        <img src="images/hero.jpg" alt="青空の下で瞑想する髙木晴" loading="lazy">
+        <img src="images/profile.jpg" alt="ベストボディジャパンでの髙木晴" loading="lazy">
+      </div>
+      <div class="gallery__set" aria-hidden="true">
+        <img src="images/gallery-icebath.jpg" alt="" loading="lazy">
+        <img src="images/about.jpg" alt="" loading="lazy">
+        <img src="images/gallery-hyrox.jpg" alt="" loading="lazy">
+        <img src="images/hero.jpg" alt="" loading="lazy">
+        <img src="images/profile.jpg" alt="" loading="lazy">
+      </div>
     </div>
   </section>
 
   <!-- ============ MESSAGE ============ -->
-  <section class="section message">
-    <div class="container message__inner">
-      <div class="section-head section-head--center">
-        <p class="section-head__en">MESSAGE</p>
-        <h2 class="section-head__ja">コーチからのメッセージ</h2>
-      </div>
-      <div class="message__body fade-up">
-        <p>サッカーに打ち込んだ学生時代、リクルートでの営業、コーチとしての独立、そしてボディメイクやHYROXへの挑戦。振り返ると、私の人生はいつも「目標」とともにありました。</p>
-        <p>その中で確信したのは、目標を達成できるかどうかは、才能や根性ではなく「目標の立て方」と「伴走してくれる存在」で大きく変わるということです。</p>
-        <p>これまで1,000名以上の方と向き合ってきた経験を、今度はあなたの挑戦のために使わせてください。本気で変わりたいと思ったその気持ちを、一緒に結果に変えていきましょう。</p>
-      </div>
+  <section class="message" id="message">
+    <div class="message__bg" data-parallax="0.12">
+      <img src="images/gallery-icebath.jpg" alt="" width="1108" height="1477" loading="lazy">
     </div>
-  </section>
-
-  <!-- ============ FAQ ============ -->
-  <section class="section faq" id="faq">
-    <div class="container faq__inner">
-      <div class="section-head section-head--center">
-        <p class="section-head__en">FAQ</p>
-        <h2 class="section-head__ja">よくある質問</h2>
+    <div class="wrap message__inner">
+      <div class="heading heading--light">
+        <p class="heading__en js-letters">MESSAGE</p>
+        <h2 class="heading__ja" data-reveal>メッセージ</h2>
       </div>
-      <div class="faq__list">
-        <details class="faq__item">
-          <summary>まだ明確な目標がないのですが、受講できますか？</summary>
-          <p>はい、もちろんです。目標がはっきりしていない段階の方こそ、自己理解のプロセスから一緒に進めることで、心から叶えたい目標を見つけられます。</p>
-        </details>
-        <details class="faq__item">
-          <summary>セッションはどのような形式ですか？</summary>
-          <p>主にオンライン（Zoom等）でのマンツーマンセッションです。お住まいの地域を問わず受講いただけます。</p>
-        </details>
-        <details class="faq__item">
-          <summary>仕事とボディメイクなど、複数の目標を扱えますか？</summary>
-          <p>はい、可能です。人生全体のバランスを見ながら、優先順位をつけて取り組む目標を一緒に整理していきます。</p>
-        </details>
-        <details class="faq__item">
-          <summary>無料相談で無理な勧誘はありませんか？</summary>
-          <p>ありません。無料相談では現状のお悩みを伺い、プログラムがお役に立てるかを一緒に判断する場としています。</p>
-        </details>
+      <div class="message__body">
+        <p data-reveal>サッカー、リクルートでの営業、独立、<br class="pc-only">ベストボディジャパン、HYROX。<br>気づけばいつも、何かしらの目標を追いかけてきました。</p>
+        <p data-reveal>目標があるだけで、毎日の過ごし方は変わる。<br class="pc-only">それを、身をもって感じてきました。</p>
+        <p data-reveal>叶えたいことがはっきりしている人も、<br class="pc-only">まだ言葉になっていない人も。<br>まずは、あなたの話を聞かせてください。</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ============ CONTACT ============ -->
-  <section class="contact" id="contact">
-    <div class="container contact__inner">
-      <p class="contact__en">CONTACT</p>
-      <h2 class="contact__title">まずは無料相談から、<br class="sp-only">はじめてみませんか。</h2>
-      <p class="contact__lead">あなたの「叶えたい」をお聞かせください。<br>オンラインで、お気軽にご相談いただけます。</p>
-      <!-- リンク先を申し込みフォーム / LINE等に差し替えてください -->
-      <a href="#" class="btn btn--accent btn--large">無料相談に申し込む</a>
+      <p class="message__sign" data-reveal>髙木 晴</p>
     </div>
   </section>
 
@@ -342,22 +258,18 @@
 
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
-  <div class="container footer__inner">
-    <div class="footer__brand">
-      <p class="footer__logo-en">GOAL ACHIEVEMENT</p>
-      <p class="footer__logo-ja">目標達成プログラム</p>
-      <p class="footer__copy">本気の目標は、ひとりで追わなくていい。</p>
+  <div class="wrap">
+    <p class="footer__big">GOAL ACHIEVEMENT<br>PROGRAM</p>
+    <div class="footer__bottom">
+      <ul class="footer__nav">
+        <li><a href="#concept">想い</a></li>
+        <li><a href="#program">プログラム</a></li>
+        <li><a href="#profile">プロフィール</a></li>
+        <li><a href="#message">メッセージ</a></li>
+      </ul>
+      <p class="footer__rights">&copy; <span id="year"></span> HARU TAKAGI</p>
     </div>
-    <ul class="footer__nav">
-      <li><a href="#about">プログラムについて</a></li>
-      <li><a href="#feature">特徴</a></li>
-      <li><a href="#flow">受講の流れ</a></li>
-      <li><a href="#profile">コーチ紹介</a></li>
-      <li><a href="#faq">よくある質問</a></li>
-      <li><a href="#contact">お問い合わせ</a></li>
-    </ul>
   </div>
-  <p class="footer__rights">&copy; <span id="year"></span> GOAL ACHIEVEMENT PROGRAM</p>
 </footer>
 
 <script src="js/main.js"></script>
