@@ -40,7 +40,7 @@
       <li class="nav__sp-line"><a href="#contact"><span class="nav__en">CONTACT</span><span class="nav__ja">公式LINE</span></a></li>
     </ul>
   </nav>
-  <a href="https://lin.ee/NoOppDc" target="_blank" rel="noopener" class="header__line">公式LINE</a>
+  <a href="#contact" class="header__line">公式LINE</a>
   <button class="menu-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
     <span></span><span></span>
   </button>
@@ -259,10 +259,17 @@
           <span class="mask"><span>まずは、公式LINEから。</span></span>
         </p>
         <p data-reveal>「話を聞いてみたい」「少し相談してみたい」<br>そう思ったら、気軽にメッセージをください。</p>
-        <a href="https://lin.ee/NoOppDc" target="_blank" rel="noopener" class="line-btn" data-reveal>
-          <span>公式LINEを友だち追加する</span>
-          <span class="line-btn__arrow" aria-hidden="true">→</span>
-        </a>
+        <div class="contact__actions" data-reveal>
+          <!-- PCはLINEの仕様で直接友だち追加できないため、QRをその場で読み取ってもらう -->
+          <figure class="line-qr">
+            <img src="images/line-qr.svg" alt="公式LINEの友だち追加用QRコード" width="160" height="160">
+            <figcaption>スマホのLINEで読み取って<br>友だち追加</figcaption>
+          </figure>
+          <a href="https://lin.ee/NoOppDc" target="_blank" rel="noopener" class="line-btn">
+            <span>公式LINEを友だち追加する</span>
+            <span class="line-btn__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
