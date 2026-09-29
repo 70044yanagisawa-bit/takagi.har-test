@@ -145,5 +145,17 @@
   $$('a', nav).forEach((a) => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
 
+  /* ---------- スマホ：固定の公式LINEボタン ---------- */
+  // ファーストビューを過ぎたら表示、お問い合わせ欄が見えている間は隠す
+  const lineFloat = $('#lineFloat');
+  const contact = $('#contact');
+  if (lineFloat && contact) {
+    let contactVisible = false;
+    new IntersectionObserver(([e]) => { contactVisible = e.isIntersecting; updateFloat(); }).observe(contact);
+    const updateFloat = () => lineFloat.classList.toggle('is-show', window.scrollY > hero.offsetHeight * .8 && !contactVisible);
+    window.addEventListener('scroll', updateFloat, { passive: true });
+    updateFloat();
+  }
+
   $('#year').textContent = new Date().getFullYear();
 })();

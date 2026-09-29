@@ -37,8 +37,10 @@
       <li><a href="#program"><span class="nav__en">PROGRAM</span><span class="nav__ja">プログラム</span></a></li>
       <li><a href="#profile"><span class="nav__en">PROFILE</span><span class="nav__ja">プロフィール</span></a></li>
       <li><a href="#message"><span class="nav__en">MESSAGE</span><span class="nav__ja">メッセージ</span></a></li>
+      <li class="nav__sp-line"><a href="#contact"><span class="nav__en">CONTACT</span><span class="nav__ja">公式LINE</span></a></li>
     </ul>
   </nav>
+  <a href="#contact" class="header__line">公式LINE</a>
   <button class="menu-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
     <span></span><span></span>
   </button>
@@ -241,7 +243,31 @@
     </div>
   </section>
 
+  <!-- ============ CONTACT (公式LINE) ============ -->
+  <section class="contact" id="contact">
+    <div class="wrap contact__inner">
+      <div class="heading">
+        <p class="heading__en js-letters">CONTACT</p>
+        <h2 class="heading__ja" data-reveal>お問い合わせ</h2>
+      </div>
+      <div class="contact__body">
+        <p class="contact__lead" data-reveal-parent>
+          <span class="mask"><span>まずは、公式LINEから。</span></span>
+        </p>
+        <p data-reveal>「話を聞いてみたい」「少し相談してみたい」<br>そう思ったら、気軽にメッセージをください。</p>
+        <!-- 公式LINEのURLに差し替え -->
+        <a href="#line-url" class="line-btn" target="_blank" rel="noopener" data-reveal>
+          <span>公式LINEを友だち追加する</span>
+          <span class="line-btn__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
 </main>
+
+<!-- スマホ用：画面下に固定の公式LINEボタン -->
+<a href="#line-url" class="line-float" id="lineFloat" target="_blank" rel="noopener">公式LINEで相談する<span aria-hidden="true">→</span></a>
 
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
@@ -253,6 +279,7 @@
         <li><a href="#program">プログラム</a></li>
         <li><a href="#profile">プロフィール</a></li>
         <li><a href="#message">メッセージ</a></li>
+        <li><a href="#contact">公式LINE</a></li>
       </ul>
       <p class="footer__rights">&copy; <span id="year"></span> HARU TAKAGI</p>
     </div>

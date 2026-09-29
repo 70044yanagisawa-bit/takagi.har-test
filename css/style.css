@@ -136,6 +136,15 @@ img { max-width: 100%; display: block; }
 .nav__ja { font-size: 10px; letter-spacing: .12em; opacity: .6; }
 
 .menu-btn { display: none; }
+.header__line {
+  padding: 9px 22px; border: 1px solid currentColor; border-radius: 999px;
+  font-size: 12px; letter-spacing: .14em; line-height: 1;
+  transition: background .3s, color .3s, border-color .3s;
+}
+.header__line:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+.header.is-solid .header__line { background: var(--black); color: var(--white); border-color: var(--black); }
+.header.is-solid .header__line:hover { opacity: .8; }
+.nav__sp-line { display: none; }
 
 /* =========================================================
    Hero
@@ -313,6 +322,25 @@ img { max-width: 100%; display: block; }
 .message__sign { margin-top: 56px; font-size: 20px; letter-spacing: .3em; }
 
 /* =========================================================
+   Contact（公式LINE）
+   ========================================================= */
+.contact { padding: 180px 0; background: var(--paper); }
+.contact__inner { display: grid; grid-template-columns: 5fr 7fr; gap: 104px; align-items: end; }
+.contact__inner .heading { margin-bottom: 0; }
+.contact__lead { font-size: clamp(24px, 2.8vw, 38px); font-weight: 500; letter-spacing: .12em; line-height: 1.6; margin-bottom: 28px; }
+.line-btn {
+  display: inline-flex; align-items: center; justify-content: space-between; gap: 48px;
+  margin-top: 48px; padding: 26px 40px; min-width: min(440px, 100%);
+  background: var(--black); color: var(--white); border-radius: 999px;
+  font-size: 16px; font-weight: 500; letter-spacing: .12em;
+  transition: background .4s var(--ease), opacity 1.2s var(--ease), transform 1.2s var(--ease);
+}
+.line-btn:hover { background: #06c755; }
+.line-btn__arrow { font-family: var(--en); transition: transform .4s var(--ease); }
+.line-btn:hover .line-btn__arrow { transform: translateX(6px); }
+.line-float { display: none; }
+
+/* =========================================================
    Footer
    ========================================================= */
 .footer { background: var(--black); color: var(--white); padding: 120px 0 40px; border-top: 1px solid rgba(255,255,255,.12); }
@@ -373,6 +401,23 @@ img { max-width: 100%; display: block; }
   .nav__list { flex-direction: column; gap: 36px; }
   .nav__en { font-size: 26px; font-weight: 300; }
   .nav__ja { font-size: 11px; margin-top: 4px; }
+  .nav__sp-line { display: list-item; }
+  .header__line { display: none; }
+
+  .contact { padding: 110px 0 130px; }
+  .contact__inner { grid-template-columns: 1fr; gap: 48px; }
+  .line-btn { width: 100%; padding: 22px 28px; font-size: 15px; gap: 16px; }
+  .line-float {
+    position: fixed; left: 16px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 90;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 26px; border-radius: 999px;
+    background: #06c755; color: var(--white);
+    font-size: 15px; font-weight: 700; letter-spacing: .1em;
+    box-shadow: 0 8px 24px rgba(0,0,0,.25);
+    transform: translateY(160%); transition: transform .6s var(--ease);
+  }
+  .line-float.is-show { transform: none; }
+  body.is-menu-open .line-float { transform: translateY(160%); }
 
   .sp-only { display: inline; }
   .pc-only { display: none; }
