@@ -44,7 +44,7 @@
       io.unobserve(e.target);
     });
   }, { rootMargin: '0px 0px -12% 0px' });
-  $$('[data-reveal], .js-letters, .img-reveal, .concept__statement').forEach((el) => io.observe(el));
+  $$('[data-reveal], [data-reveal-parent], .js-letters, .img-reveal, .concept__statement').forEach((el) => io.observe(el));
 
   /* ---------- 数字カウントアップ ---------- */
   const countIo = new IntersectionObserver((entries) => {
