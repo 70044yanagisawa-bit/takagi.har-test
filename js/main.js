@@ -3,6 +3,22 @@
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
+  /* ---------- 別ページに移ったときは、必ず一番上から表示 ---------- */
+  // ブラウザやプレビュー画面が前のスクロール位置を引き継ぐことがあるため。
+  // 「戻る」で来たとき（元の位置に戻る方が自然）と、#付きのリンクのときは除く。
+  const nav0 = performance.getEntriesByType('navigation')[0];
+  const cameByBack = nav0 && nav0.type === 'back_forward';
+  if (!cameByBack && !location.hash) {
+    const toTop = () => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    };
+    toTop();
+    window.addEventListener('pageshow', (e) => { if (!e.persisted) toTop(); });
+    window.addEventListener('load', toTop);
+  }
+
   /* ---------- 英字見出しを1文字ずつに分割 ---------- */
   $$('.js-letters').forEach((el) => {
     const text = el.textContent;
