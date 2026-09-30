@@ -430,7 +430,7 @@ img { max-width: 100%; display: block; }
 /* =========================================================
    Contact（公式LINE）
    ========================================================= */
-.contact { padding: 180px 0; background: var(--paper); }
+.contact { padding: 180px 0; background: var(--white); }
 .contact__inner { display: grid; grid-template-columns: 5fr 7fr; gap: 104px; align-items: end; }
 .contact__inner .heading { margin-bottom: 0; }
 .contact__lead { font-size: clamp(24px, 2.8vw, 38px); font-weight: 500; letter-spacing: .12em; line-height: 1.6; margin-bottom: 28px; }
