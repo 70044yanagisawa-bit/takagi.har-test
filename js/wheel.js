@@ -10,11 +10,11 @@
 
   const LINE_ID = '@308fmkzm';
   const LINE_URL = 'https://lin.ee/NoOppDc';
-  // 項目は晴さんのセッションで使っているバランスホイール（10項目）＋恋愛
+  // 項目は晴さんのセッションで使っているバランスホイール（10項目）。
+  // 「家族・パートナー」は恋愛コーチングへの入口なので色で強調する
   const AREAS = [
     { en: 'WORK', ja: '仕事', full: '仕事' },
-    { en: 'FAMILY', ja: '家族', full: '家族' },
-    { en: 'LOVE', ja: '恋愛', full: '恋愛・パートナーシップ', love: true },
+    { en: 'FAMILY & PARTNER', ja: '家族・', ja2: 'パートナー', full: '家族・パートナー', love: true },
     { en: 'RELATIONS', ja: '人間関係', full: '人間関係' },
     { en: 'INTELLECT', ja: '知性', full: '知性' },
     { en: 'BODY', ja: '肉体', full: '肉体' },
@@ -24,7 +24,7 @@
     { en: 'SOCIAL', ja: '社会貢献', full: '社会貢献' },
     { en: 'FINANCE', ja: 'ファイナンス', full: 'ファイナンス' },
   ];
-  const SAMPLE = [6, 7, 4, 5, 4, 8, 5, 7, 4, 3, 5];
+  const SAMPLE = [6, 7, 5, 4, 8, 5, 7, 4, 3, 5];
   const N = AREAS.length;
   const R = 150; // 満足度10のときの半径
   const STEP = R / 10;
@@ -49,6 +49,12 @@
     return `M0 0 L${x0.toFixed(2)} ${y0.toFixed(2)} A${r} ${r} 0 0 1 ${x1.toFixed(2)} ${y1.toFixed(2)} Z`;
   };
 
+  /* ---------- 合計点（ホイールの後ろにうっすら大きく） ---------- */
+  const bgTotal = document.createElement('div');
+  bgTotal.className = 'wheel__bgtotal';
+  bgTotal.setAttribute('aria-hidden', 'true');
+  root.appendChild(bgTotal);
+
   /* ---------- SVGを組み立てる ---------- */
   const svg = el('svg', { viewBox: '-230 -230 460 460', class: 'wheel__svg' }, root);
   const grid = el('g', { class: 'wheel__grid' }, svg);
@@ -60,13 +66,15 @@
   const fills = AREAS.map((a, i) => el('path', { class: 'wheel__fill' + (a.love ? ' is-love' : ''), 'data-i': i }, svg));
   const labels = AREAS.map((a, i) => {
     const mid = (i + .5) * 360 / N;
-    const [x, y] = pt(mid, R + 42);
+    // 2行のラベル（家族・／パートナー）は、扇形と重ならないよう少し外側に置く
+    const [x, y] = pt(mid, R + (a.ja2 ? 52 : 42));
     const g = el('g', { class: 'wheel__label' + (a.love ? ' is-love' : ''), transform: `translate(${x.toFixed(1)} ${y.toFixed(1)})` }, svg);
-    el('text', { class: 'wheel__en', y: -8 }, g).textContent = a.en;
-    const ja = el('text', { class: 'wheel__ja', y: 12 }, g);
+    el('text', { class: 'wheel__en', y: a.ja2 ? -18 : -8 }, g).textContent = a.en;
+    const ja = el('text', { class: 'wheel__ja', y: a.ja2 ? 2 : 12 }, g);
     ja.textContent = a.ja;
-    const score = el('tspan', { class: 'wheel__score', dx: 6 }, ja);
-    return score;
+    const last = a.ja2 ? el('text', { class: 'wheel__ja', y: 22 }, g) : ja;
+    if (a.ja2) last.textContent = a.ja2;
+    return el('tspan', { class: 'wheel__score', dx: 6 }, last);
   });
 
   /* ---------- スライダー ---------- */
@@ -92,8 +100,19 @@
   let touched = false;
   let raf = null;
 
+  const summary = document.getElementById('wheelSummary');
+  const sum = (arr) => arr.reduce((a, b) => a + b, 0);
   const render = () => {
     fills.forEach((f, i) => f.setAttribute('d', wedge(i, cur[i] * STEP)));
+    // 合計は描画中の値から出すので、グラフと一緒に数字も動く
+    bgTotal.textContent = sum(cur) > .5 ? Math.round(sum(cur)) : '';
+    if (summary && sum(target) > 0) {
+      const total = sum(target);
+      const min = Math.min(...target.filter(Boolean));
+      const lows = AREAS.filter((a, i) => target[i] === min).map((a) => a.full).join('・');
+      summary.innerHTML = `<span class="wheel__summary-total"><small>TOTAL</small><b>${Math.round(sum(cur))}</b><small>/ ${N * 10}</small></span>`
+        + `<span class="wheel__summary-low">いちばん低い領域：${lows}（${min}点）</span>`;
+    }
     labels.forEach((s, i) => { s.textContent = target[i] ? String(target[i]) : ''; });
     inputs.forEach(({ input, out }, i) => {
       if (target[i]) { input.value = target[i]; out.textContent = target[i]; }
@@ -154,7 +173,7 @@
   const updateSend = () => {
     if (!isMobile) { send.href = LINE_URL; return; }
     const lines = AREAS.map((a, i) => `${a.full}：${target[i]}`).join('\n');
-    const text = `バランスホイールの結果です。\n${lines}\n\n相談したいこと：`;
+    const text = `バランスホイールの結果です。\n${lines}\n合計：${sum(target)} / ${N * 10}\n\n相談したいこと：`;
     send.href = `https://line.me/R/oaMessage/${encodeURIComponent(LINE_ID)}/?${encodeURIComponent(text)}`;
   };
 
