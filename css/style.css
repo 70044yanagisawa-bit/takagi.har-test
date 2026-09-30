@@ -732,3 +732,71 @@ img { max-width: 100%; display: block; }
   .story__statement { margin: 80px auto; font-size: 21px; letter-spacing: .06em; }
   .story-next__link { padding: 56px 0; }
 }
+
+/* =========================================================
+   恋愛コーチング（love/ と love/story/）の配色：ネイビー × オレンジ
+   トップページと同じ部品を使いつつ、色の変数を差し替えて夜〜夕焼けのトーンにする
+   ========================================================= */
+body.page-love {
+  --navy: #0a0c1f;
+  --navy-2: #12152e;
+  --black: #06071a;              /* 黒だった面（フッター・メニュー等）は深いネイビーに */
+  --ink: #f1f1f5;                /* 文字・罫線の濃い色は白に */
+  --line: rgba(255,255,255,.14);
+  --paper: var(--navy-2);
+  --gray: rgba(255,255,255,.55);
+  background: var(--navy);
+  color: rgba(255,255,255,.86);
+}
+.page-love .heading { color: var(--white); }
+
+/* 夕焼けのグラデーション（トップの恋愛バナーと同じ色味） */
+.page-love .love-why,
+.page-love .love-service,
+.page-love .contact {
+  background:
+    radial-gradient(90% 70% at 100% 100%, rgba(240,138,93,.28) 0%, rgba(240,138,93,0) 60%),
+    linear-gradient(180deg, var(--navy) 0%, #0f1126 100%);
+}
+.page-love .love-themes,
+.page-love .story__statement-wrap {
+  background:
+    radial-gradient(120% 90% at 85% 110%, rgba(240,138,93,.5) 0%, rgba(240,138,93,0) 60%),
+    linear-gradient(160deg, #0d1026 0%, #1c1a33 50%, #2a1712 100%);
+}
+.page-love .love-method { background: var(--navy); }
+.page-love .love-service { padding-top: 150px; }
+.page-love .contact {
+  background:
+    radial-gradient(110% 90% at 90% 120%, rgba(240,138,93,.55) 0%, rgba(240,138,93,0) 62%),
+    linear-gradient(165deg, #0c0f24 0%, #1d1a33 55%, #2a1712 100%);
+}
+.page-love .love-back, .page-love .story-next { background: #070919; }
+.page-love .footer { background: #05061a; }
+
+/* ヒーロー：ネイビーの影＋足元にオレンジ */
+.page-love .hero--love .hero__bg::after {
+  background:
+    linear-gradient(90deg, rgba(8,10,30,.82) 0%, rgba(8,10,30,.35) 55%, rgba(8,10,30,.05) 100%),
+    linear-gradient(0deg, rgba(240,138,93,.22), rgba(240,138,93,0) 55%);
+}
+
+/* 明るい背景前提だった色の差し替え */
+.page-love .love-steps li p:last-child,
+.page-love .love-service__list dd,
+.page-love .line-qr figcaption { color: rgba(255,255,255,.7); }
+.page-love .love-steps li + li { border-left-color: var(--line); }
+.page-love .header.is-solid { background: rgba(10,12,31,.92); color: var(--white); box-shadow: 0 1px 0 rgba(255,255,255,.08); }
+.page-love .header.is-solid .header__line { background: var(--white); color: var(--navy); border-color: var(--white); }
+.page-love .line-btn { background: var(--white); color: var(--navy); }
+.page-love .line-btn:hover { background: #06c755; color: var(--white); }
+.page-love .story-link:hover { color: var(--love); }
+.page-love .todo { background: rgba(240,138,93,.08); }
+
+@media (max-width: 820px) {
+  .page-love .love-service { padding-top: 110px; }
+  .page-love .header.is-solid { background: rgba(10,12,31,.92); }
+}
+.story__statement-wrap { margin: 120px 0; padding: 140px 0; }
+.story__statement-wrap .story__statement { margin: 0 auto; color: var(--white); }
+@media (max-width: 820px) { .story__statement-wrap { margin: 80px 0; padding: 90px 0; } .story__statement-wrap .story__statement { margin: 0 auto; } }
