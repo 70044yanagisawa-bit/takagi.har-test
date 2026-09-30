@@ -651,12 +651,6 @@ img { max-width: 100%; display: block; }
 .love-steps h3 { margin: 18px 0 12px; font-size: 17px; font-weight: 500; letter-spacing: .12em; }
 .love-steps li p:last-child { font-size: 14px; color: #555; }
 
-.love-service { padding: 0 0 170px; }
-.love-service__inner { display: grid; grid-template-columns: 5fr 7fr; gap: 104px; }
-.love-service__list { border-top: 1px solid var(--ink); }
-.love-service__list > div { display: grid; grid-template-columns: 140px 1fr; padding: 28px 0; border-bottom: 1px solid var(--line); }
-.love-service__list dt { font-weight: 500; letter-spacing: .12em; }
-.love-service__list dd { color: #444; }
 
 .love-back { background: var(--black); color: var(--white); }
 .love-back__link { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 8px 32px; padding: 72px 0; }
@@ -673,7 +667,7 @@ img { max-width: 100%; display: block; }
 }
 @media (max-width: 820px) {
   .love-why { padding: 110px 0; }
-  .love-why__inner, .love-service__inner { grid-template-columns: 1fr; gap: 40px; }
+  .love-why__inner { grid-template-columns: 1fr; gap: 40px; }
   .todo { padding: 24px 22px; }
   .love-themes { padding: 110px 0; }
   .love-themes__list { grid-template-columns: 1fr; }
@@ -682,8 +676,6 @@ img { max-width: 100%; display: block; }
   .love-method__lead { margin-bottom: 44px; }
   .love-steps { grid-template-columns: 1fr; }
   .love-steps li, .love-steps li + li, .love-steps li:nth-child(3) { padding: 28px 0; border-left: 0; border-bottom: 1px solid var(--line); }
-  .love-service { padding-bottom: 110px; }
-  .love-service__list > div { grid-template-columns: 1fr; gap: 6px; }
   .love-back__link { padding: 56px 0; }
 }
 .hero--love .hero__title { font-size: clamp(40px, 6.6vw, 100px); }
@@ -765,7 +757,6 @@ body.page-love {
 
 /* 夕焼けのグラデーション（トップの恋愛バナーと同じ色味） */
 .page-love .love-why,
-.page-love .love-service,
 .page-love .contact {
   background:
     radial-gradient(90% 70% at 100% 100%, rgba(240,138,93,.28) 0%, rgba(240,138,93,0) 60%),
@@ -778,7 +769,6 @@ body.page-love {
     linear-gradient(160deg, #0d1026 0%, #1c1a33 50%, #2a1712 100%);
 }
 .page-love .love-method { background: var(--navy); }
-.page-love .love-service { padding-top: 150px; }
 .page-love .contact {
   background:
     radial-gradient(110% 90% at 90% 120%, rgba(240,138,93,.55) 0%, rgba(240,138,93,0) 62%),
@@ -796,7 +786,6 @@ body.page-love {
 
 /* 明るい背景前提だった色の差し替え */
 .page-love .love-steps li p:last-child,
-.page-love .love-service__list dd,
 .page-love .line-qr figcaption { color: rgba(255,255,255,.7); }
 .page-love .love-steps li + li { border-left-color: var(--line); }
 .page-love .header.is-solid { background: rgba(10,12,31,.92); color: var(--white); box-shadow: 0 1px 0 rgba(255,255,255,.08); }
@@ -807,7 +796,6 @@ body.page-love {
 .page-love .todo { background: rgba(240,138,93,.08); }
 
 @media (max-width: 820px) {
-  .page-love .love-service { padding-top: 110px; }
   .page-love .header.is-solid { background: rgba(10,12,31,.92); }
 }
 .story__statement-wrap { margin: 120px 0; padding: 140px 0; }
