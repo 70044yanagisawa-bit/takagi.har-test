@@ -1,0 +1,5 @@
+# Cloudflare Pages：CSS・JSは毎回新しい版があるか確認させる（古いファイルが使われ続けないように）
+/css/*
+  Cache-Control: no-cache
+/js/*
+  Cache-Control: no-cache

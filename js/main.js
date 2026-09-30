@@ -7,8 +7,9 @@
   // 再読み込み・開き直し・別ページからの移動では、ブラウザが前の位置を後から復元して
   // 途中から始まることがあるため、位置の自動復元を止めて一番上に固定する。
   // 「戻る」で来たとき（元の位置に戻る方が自然）と、#付きのリンクのときは除く。
-  const nav0 = performance.getEntriesByType('navigation')[0];
+  const nav0 = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
   const cameByBack = nav0 && nav0.type === 'back_forward';
+  const enableSmooth = () => document.documentElement.classList.add('is-smooth');
   if (!cameByBack && !location.hash) {
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
@@ -16,15 +17,20 @@
       window.addEventListener('pagehide', () => { history.scrollRestoration = 'auto'; });
     }
     let userScrolled = false;
-    ['wheel', 'touchstart', 'keydown'].forEach((ev) =>
+    ['wheel', 'touchmove', 'keydown'].forEach((ev) =>
       window.addEventListener(ev, () => { userScrolled = true; }, { once: true, passive: true }));
-    // なめらかスクロールの設定に打ち消されないよう、瞬時に移動させる
-    const toTop = () => { if (!userScrolled) window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); };
+    const toTop = () => { if (!userScrolled) window.scrollTo(0, 0); };
     toTop();
     requestAnimationFrame(toTop);
     window.addEventListener('DOMContentLoaded', toTop);
-    window.addEventListener('load', () => { toTop(); setTimeout(toTop, 60); setTimeout(toTop, 300); });
+    window.addEventListener('load', () => {
+      toTop();
+      setTimeout(toTop, 60);
+      setTimeout(() => { toTop(); enableSmooth(); }, 400);
+    });
     window.addEventListener('pageshow', (e) => { if (!e.persisted) toTop(); });
+  } else {
+    enableSmooth();
   }
 
   /* ---------- 英字見出しを1文字ずつに分割 ---------- */
