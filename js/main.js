@@ -147,6 +147,18 @@
     if (Math.abs(y - lastY) > 2) lastY = y;
   };
 
+  /* ---------- スクロール量に合わせて演出を進める（[data-scroll-progress]） ---------- */
+  // 要素が画面の下から入ってきた時点を0、中央付近まで来た時点を1として、CSS変数 --p に渡す
+  const progressEls = $$('[data-scroll-progress]');
+  const updateProgress = () => {
+    const vh = window.innerHeight;
+    progressEls.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      const p = reduced ? 1 : Math.min(Math.max((vh - r.top) / (vh * .55 + r.height * .35), 0), 1);
+      el.style.setProperty('--p', p.toFixed(3));
+    });
+  };
+
   let ticking = false;
   const onScroll = () => {
     if (ticking) return;
@@ -155,6 +167,7 @@
       updateHeader();
       updateParallax();
       updateRoadmap();
+      updateProgress();
       ticking = false;
     });
   };

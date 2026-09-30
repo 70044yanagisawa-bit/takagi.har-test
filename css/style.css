@@ -815,3 +815,30 @@ body.page-love {
 /* 海の動き（js/sea.js）：最初の1コマが描けるまでは写真を見せ、描けたら差し替える */
 .hero__bg canvas { opacity: 0; transition: opacity .6s ease, transform 3.5s var(--ease); }
 .hero__bg.is-sea-ready canvas { opacity: 1; }
+
+/* =========================================================
+   理由ページの締めの一文：スクロールに合わせて夜明けのように浮かび上がる
+   --p（0〜1）は js/main.js がスクロール量から計算して入れる
+   ========================================================= */
+.page-love .story__statement-wrap { position: relative; overflow: hidden; background: var(--navy); --p: 0; }
+.page-love .story__statement-wrap::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 85% 110%, rgba(240,138,93,.55) 0%, rgba(240,138,93,0) 60%),
+    linear-gradient(160deg, #0d1026 0%, #1c1a33 50%, #2a1712 100%);
+  opacity: var(--p);
+  transform: translateY(calc((1 - var(--p)) * 18%)) scale(calc(1.12 - var(--p) * .12));
+  transform-origin: 80% 100%;
+}
+.story__statement-wrap .story__statement { position: relative; }
+/* 文字は左から右へ、白いグラデーションが流れ込むように表示（1行目→2行目の順） */
+.story__statement-wrap .mask > span {
+  transform: none !important; transition: none !important;
+  color: transparent;
+  background: linear-gradient(90deg, #fff 0%, #fff 42%, rgba(255,255,255,.06) 58%, rgba(255,255,255,.06) 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text; background-clip: text;
+}
+.story__statement-wrap .mask:nth-child(1) > span { background-position: calc((1 - clamp(0, var(--p) * 1.7, 1)) * 100%) 0; }
+.story__statement-wrap .mask:nth-child(2) > span { background-position: calc((1 - clamp(0, var(--p) * 1.7 - .55, 1)) * 100%) 0; }
+@media (prefers-reduced-motion: reduce) { .page-love .story__statement-wrap { --p: 1 !important; } }
