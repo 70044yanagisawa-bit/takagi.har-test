@@ -674,3 +674,61 @@ img { max-width: 100%; display: block; }
   .love-back__link { padding: 56px 0; }
 }
 .hero--love .hero__title { font-size: clamp(40px, 6.6vw, 100px); }
+
+/* ---------- 恋愛ページ：理由の要約と「理由を読む」リンク ---------- */
+.love-why__lead { font-size: clamp(22px, 2.4vw, 32px); font-weight: 500; line-height: 1.7; letter-spacing: .1em; margin-bottom: 32px; }
+.story-link {
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 24px;
+  margin-top: 48px; padding: 28px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink);
+  transition: opacity 1.2s var(--ease), transform 1.2s var(--ease), color .3s;
+}
+.story-link__label { font-family: var(--en); font-size: 12px; letter-spacing: .3em; color: var(--love); }
+.story-link__ja { grid-row: 2; font-size: clamp(17px, 1.6vw, 20px); font-weight: 500; letter-spacing: .12em; }
+.story-link__arrow { grid-row: 1 / 3; grid-column: 2; font-family: var(--en); font-size: 28px; transition: transform .4s var(--ease); }
+.story-link:hover { color: var(--love); }
+.story-link:hover .story-link__arrow { transform: translateX(8px); }
+
+/* =========================================================
+   恋愛コーチをやる理由（love/story/）
+   ========================================================= */
+.hero--story { height: 88vh; height: 88svh; min-height: 560px; }
+.story-title { font-size: clamp(34px, 5vw, 72px); font-weight: 500; line-height: 1.4; letter-spacing: .1em; }
+.story-title .mask:nth-child(2) > span { transition-delay: .1s; }
+.story-title .mask:nth-child(3) > span { transition-delay: .2s; }
+
+.story { padding: 160px 0 140px; }
+.story__body { width: min(720px, 100% - 48px); margin-inline: auto; }
+.story__body > * + * { margin-top: 1.6em; }
+.story__body p { font-size: 17px; line-height: 2.3; }
+.story__quote {
+  margin: 1.6em 0 0; padding: 36px 40px; border-left: 2px solid var(--love); background: rgba(240,138,93,.07);
+  font-size: clamp(18px, 1.8vw, 22px); font-weight: 500; line-height: 2; letter-spacing: .08em;
+}
+.story__voice, .story__voices li { font-size: clamp(18px, 1.8vw, 22px) !important; font-weight: 500; letter-spacing: .1em; color: var(--love-deep); }
+.story__voices li + li { margin-top: .4em; }
+.story__list { padding: 32px 36px; background: var(--paper); }
+.story__list li { position: relative; padding-left: 26px; line-height: 2.2; }
+.story__list li::before { content: ""; position: absolute; left: 0; top: 1.05em; width: 12px; height: 1px; background: var(--love); }
+.story__steps { border-top: 1px solid var(--ink); }
+.story__steps li { padding: 20px 0; border-bottom: 1px solid var(--line); line-height: 2; font-weight: 500; }
+.story__statement {
+  width: min(1000px, 100% - 48px); margin: 120px auto;
+  font-size: clamp(26px, 3.6vw, 52px); font-weight: 500; line-height: 1.6; letter-spacing: .1em; text-align: center;
+}
+.story__sign { margin-top: 56px !important; font-size: 20px !important; letter-spacing: .3em; text-align: right; }
+
+.story-next { background: var(--black); color: var(--white); }
+.story-next__link { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 8px 32px; padding: 72px 0; }
+.story-next__label { font-family: var(--en); font-weight: 300; font-size: clamp(20px, 2.6vw, 36px); letter-spacing: .06em; line-height: 1.35; }
+.story-next__ja { grid-row: 2; font-size: 13px; letter-spacing: .1em; opacity: .7; }
+.story-next__arrow { grid-row: 1 / 3; grid-column: 2; font-family: var(--en); font-size: 28px; transition: transform .4s var(--ease); }
+.story-next__link:hover .story-next__arrow { transform: translateX(8px); }
+
+@media (max-width: 820px) {
+  .story { padding: 100px 0 90px; }
+  .story__body p { font-size: 15px; line-height: 2.2; word-break: auto-phrase; text-wrap: pretty; }
+  .story__quote { padding: 24px 22px; }
+  .story__list { padding: 24px 20px; }
+  .story__statement { margin: 80px auto; font-size: 21px; letter-spacing: .06em; }
+  .story-next__link { padding: 56px 0; }
+}
