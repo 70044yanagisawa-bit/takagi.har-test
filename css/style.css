@@ -716,7 +716,13 @@ img { max-width: 100%; display: block; }
 .story__voices li + li { margin-top: .5em; }
 .story__voice { margin: 1.4em 0 !important; }
 .story__list { margin: 2em 0 !important; border-top: 1px solid var(--line); }
-.story__list li { padding: 14px 0; border-bottom: 1px solid var(--line); line-height: 1.9; }
+.story__list li {
+  padding: 14px 14px; margin: 0 -14px; border-bottom: 1px solid var(--line); line-height: 1.9;
+  transition: background-color .35s ease, color .35s ease;
+}
+/* マウスを乗せた行（スマホは画面の真ん中に来た行）を、グレーの帯で「選択中」のように見せる */
+@media (hover: hover) { .story__list li:hover { background: rgba(255,255,255,.09); color: var(--white); } }
+.story__list li.is-active { background: rgba(255,255,255,.09); color: var(--white); }
 .story__steps { border-top: 1px solid var(--ink); }
 .story__steps li { padding: 20px 0; border-bottom: 1px solid var(--line); line-height: 2; font-weight: 500; }
 .story__statement {

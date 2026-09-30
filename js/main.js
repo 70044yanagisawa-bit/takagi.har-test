@@ -175,6 +175,32 @@
   $$('a', nav).forEach((a) => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
 
+  /* ---------- 理由ページの箇条書き：スマホは画面の真ん中に来た行を光らせる ---------- */
+  // （PCはCSSの :hover でマウスを乗せた行が光る）
+  if (window.matchMedia('(hover: none)').matches) {
+    const rows = $$('.story__list li');
+    if (rows.length) {
+      // 画面の中心にいちばん近い1行だけを光らせる（リストが画面の中心にかかっている間だけ）
+      let rowTick = false;
+      const updateRows = () => {
+        rowTick = false;
+        const mid = window.innerHeight / 2;
+        let best = null, bestDist = Infinity;
+        rows.forEach((r) => {
+          const b = r.getBoundingClientRect();
+          const dist = Math.abs(b.top + b.height / 2 - mid);
+          if (dist < bestDist) { bestDist = dist; best = r; }
+        });
+        const within = best && bestDist < best.getBoundingClientRect().height;
+        rows.forEach((r) => r.classList.toggle('is-active', within && r === best));
+      };
+      window.addEventListener('scroll', () => {
+        if (!rowTick) { rowTick = true; requestAnimationFrame(updateRows); }
+      }, { passive: true });
+      updateRows();
+    }
+  }
+
   /* ---------- スマホ：固定の公式LINEボタン ---------- */
   // ファーストビューを過ぎたら表示、お問い合わせ欄が見えている間は隠す
   // （data-hide-float を付けた欄も、操作の邪魔にならないよう表示中は隠す）
