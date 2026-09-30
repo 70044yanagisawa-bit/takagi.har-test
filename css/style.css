@@ -160,7 +160,7 @@ img { max-width: 100%; display: block; }
 }
 .hero__bg { position: absolute; inset: 0; }
 /* 人物が中央の写真なので、PCでは右側に寄せて左端を黒に溶け込ませ、見出しと重ならないようにする */
-.hero__bg img {
+.hero__bg img, .hero__bg canvas {
   position: absolute; top: 0; right: 0;
   width: 64%; height: 100%; object-fit: cover; object-position: 50% 42%;
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 32%);
@@ -169,7 +169,7 @@ img { max-width: 100%; display: block; }
   transform: scale(1.15);
   transition: transform 3.5s var(--ease);
 }
-.hero.is-in .hero__bg img { transform: scale(1); animation: slowZoom 24s linear 3.5s infinite alternate; }
+.hero.is-in .hero__bg img, .hero.is-in .hero__bg canvas { transform: scale(1); animation: slowZoom 24s linear 3.5s infinite alternate; }
 @keyframes slowZoom { to { transform: scale(1.08); } }
 .hero__bg::after {
   content: ""; position: absolute; inset: 0;
@@ -538,7 +538,7 @@ img { max-width: 100%; display: block; }
 
   /* 空を上に逃がして顔を画面上側に出し、文字と重ならないようにする */
   .hero__bg { inset: -24% 0 0 0; }
-  .hero__bg img { width: 100%; object-position: 50% center; transform-origin: 50% 45%; -webkit-mask-image: none; mask-image: none; }
+  .hero__bg img, .hero__bg canvas { width: 100%; object-position: 50% center; transform-origin: 50% 45%; -webkit-mask-image: none; mask-image: none; }
   .hero__bg::after { background: linear-gradient(0deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.35) 42%, rgba(0,0,0,0) 68%); }
   .hero__content { justify-content: flex-end; padding-bottom: 88px; }
   .hero__title { font-size: 10.6vw; }
@@ -804,3 +804,7 @@ body.page-love {
 
 /* 黒い欄が続くところは、細い線で区切る */
 .life + .program { border-top: 1px solid rgba(255,255,255,.12); }
+
+/* 海の動き（js/sea.js）：最初の1コマが描けるまでは写真を見せ、描けたら差し替える */
+.hero__bg canvas { opacity: 0; transition: opacity .6s ease, transform 3.5s var(--ease); }
+.hero__bg.is-sea-ready canvas { opacity: 1; }
