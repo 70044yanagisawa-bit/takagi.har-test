@@ -147,12 +147,17 @@
 
   /* ---------- スマホ：固定の公式LINEボタン ---------- */
   // ファーストビューを過ぎたら表示、お問い合わせ欄が見えている間は隠す
+  // （data-hide-float を付けた欄も、操作の邪魔にならないよう表示中は隠す）
   const lineFloat = $('#lineFloat');
-  const contact = $('#contact');
-  if (lineFloat && contact) {
-    let contactVisible = false;
-    new IntersectionObserver(([e]) => { contactVisible = e.isIntersecting; updateFloat(); }).observe(contact);
-    const updateFloat = () => lineFloat.classList.toggle('is-show', window.scrollY > hero.offsetHeight * .8 && !contactVisible);
+  const hideZones = $$('#contact, [data-hide-float]');
+  if (lineFloat && hideZones.length) {
+    const visible = new Set();
+    const zoneIo = new IntersectionObserver((entries) => {
+      entries.forEach((e) => (e.isIntersecting ? visible.add(e.target) : visible.delete(e.target)));
+      updateFloat();
+    });
+    hideZones.forEach((z) => zoneIo.observe(z));
+    const updateFloat = () => lineFloat.classList.toggle('is-show', window.scrollY > hero.offsetHeight * .8 && visible.size === 0);
     window.addEventListener('scroll', updateFloat, { passive: true });
     updateFloat();
   }
