@@ -33,6 +33,18 @@
     enableSmooth();
   }
 
+  /* ---------- 実際に見えている画面の高さを測る（ファーストビュー用） ---------- */
+  // アドレスバーの出し入れで高さが揺れないよう、幅が変わったとき（回転など）だけ測り直す
+  let lastW = 0;
+  const setAppH = () => {
+    if (window.innerWidth === lastW) return;
+    lastW = window.innerWidth;
+    document.documentElement.style.setProperty('--app-h', `${window.innerHeight}px`);
+    document.documentElement.classList.add('has-app-h');
+  };
+  setAppH();
+  window.addEventListener('resize', setAppH);
+
   /* ---------- 英字見出しを1文字ずつに分割 ---------- */
   $$('.js-letters').forEach((el) => {
     const text = el.textContent;

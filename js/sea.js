@@ -24,7 +24,12 @@
 
   // 座標はすべて「写真全体を0〜1」とした位置。人物や水平線の位置は hero.jpg に合わせてある
   const FRAG = `
-    precision mediump float;
+    // スマホのGPUは mediump だと精度が足りず、小さなゆらぎが0に丸められて止まって見えるため highp を使う
+    #ifdef GL_FRAGMENT_PRECISION_HIGH
+      precision highp float;
+    #else
+      precision mediump float;
+    #endif
     varying vec2 v;
     uniform sampler2D tex;
     uniform float t;
@@ -132,7 +137,8 @@
     let visible = true, raf = 0;
     const t0 = performance.now();
     const frame = (now) => {
-      gl.uniform1f(uT, (now - t0) / 1000);
+      // 時間の値が大きくなると精度が落ちるので、10分ごとに0へ戻す（切り替わりは目立たない）
+      gl.uniform1f(uT, ((now - t0) / 1000) % 600);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       if (!box.classList.contains('is-sea-ready')) box.classList.add('is-sea-ready');
       if (visible) raf = requestAnimationFrame(frame);

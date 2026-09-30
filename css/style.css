@@ -842,3 +842,29 @@ body.page-love {
 .story__statement-wrap .mask:nth-child(1) > span { background-position: calc((1 - clamp(0, var(--p) * 1.7, 1)) * 100%) 0; }
 .story__statement-wrap .mask:nth-child(2) > span { background-position: calc((1 - clamp(0, var(--p) * 1.7 - .55, 1)) * 100%) 0; }
 @media (prefers-reduced-motion: reduce) { .page-love .story__statement-wrap { --p: 1 !important; } }
+
+/* =========================================================
+   ファーストビューの高さ：実際に見えている画面の高さ（JSで測った --app-h）に合わせる
+   LINE・Instagramなどのアプリ内ブラウザでは 100vh/100svh が画面より長くなり、
+   下の文字が画面外に押し出されることがあるため
+   ========================================================= */
+.has-app-h .hero { height: var(--app-h); }
+.has-app-h .hero--story { height: calc(var(--app-h) * .88); }
+@media (max-width: 820px) {
+  .hero { min-height: 500px; }
+  .hero--story, .has-app-h .hero--story { height: 100vh; height: 100svh; min-height: 500px; }
+  .has-app-h .hero--story { height: var(--app-h); }
+  .story-title { font-size: 28px; letter-spacing: .06em; }
+  .hero--love .hero__title { font-size: 36px; }
+  .love-hero__label { margin-bottom: 14px; }
+}
+/* 画面の高さが低いスマホ（アプリ内ブラウザ等）では、見出しを小さく・余白を詰めて顔にかからないようにする */
+@media (max-width: 820px) and (max-height: 620px) {
+  .hero__content { padding-bottom: 60px; }
+  .hero__title { font-size: 9vw; }
+  .hero--love .hero__title { font-size: 30px; }
+  .hero__copy { margin-top: 16px; font-size: 18px; }
+  .hero__name { margin-top: 16px; }
+  .love-hero__label { margin-bottom: 8px; }
+  .story-title { font-size: 24px; }
+}
