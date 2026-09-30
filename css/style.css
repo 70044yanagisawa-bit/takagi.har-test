@@ -721,10 +721,10 @@ img { max-width: 100%; display: block; }
   transition: background-color .35s ease, color .35s ease;
 }
 /* マウスを乗せた行（スマホは画面の真ん中に来た行）を、グレーの帯で「選択中」のように見せる */
-@media (hover: hover) { .story__list li:hover { background: rgba(255,255,255,.09); color: var(--white); } }
-.story__list li.is-active { background: rgba(255,255,255,.09); color: var(--white); }
+@media (hover: hover) { .story__list li:hover, .story__steps li:hover { background: rgba(255,255,255,.09); color: var(--white); } }
+.story__list li.is-active, .story__steps li.is-active { background: rgba(255,255,255,.09); color: var(--white); }
 .story__steps { border-top: 1px solid var(--ink); }
-.story__steps li { padding: 20px 0; border-bottom: 1px solid var(--line); line-height: 2; font-weight: 500; }
+.story__steps li { padding: 20px 14px; margin: 0 -14px; border-bottom: 1px solid var(--line); line-height: 2; font-weight: 500; transition: background-color .35s ease, color .35s ease; }
 .story__statement {
   width: min(1000px, 100% - 48px); margin: 120px auto;
   font-size: clamp(26px, 3.6vw, 52px); font-weight: 500; line-height: 1.6; letter-spacing: .1em; text-align: center;

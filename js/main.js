@@ -175,24 +175,26 @@
   $$('a', nav).forEach((a) => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
 
-  /* ---------- 理由ページの箇条書き：スマホは画面の真ん中に来た行を光らせる ---------- */
+  /* ---------- 理由ページの2つのリスト：スマホは画面の真ん中に来た行を光らせる ---------- */
   // （PCはCSSの :hover でマウスを乗せた行が光る）
   if (window.matchMedia('(hover: none)').matches) {
-    const rows = $$('.story__list li');
-    if (rows.length) {
-      // 画面の中心にいちばん近い1行だけを光らせる（リストが画面の中心にかかっている間だけ）
+    // リストごとに、画面の中心にいちばん近い1行だけを光らせる（リストが中心にかかっている間だけ）
+    const groups = $$('.story__list, .story__steps').map((list) => $$('li', list)).filter((g) => g.length);
+    if (groups.length) {
       let rowTick = false;
       const updateRows = () => {
         rowTick = false;
         const mid = window.innerHeight / 2;
-        let best = null, bestDist = Infinity;
-        rows.forEach((r) => {
-          const b = r.getBoundingClientRect();
-          const dist = Math.abs(b.top + b.height / 2 - mid);
-          if (dist < bestDist) { bestDist = dist; best = r; }
+        groups.forEach((rows) => {
+          let best = null, bestDist = Infinity;
+          rows.forEach((r) => {
+            const b = r.getBoundingClientRect();
+            const dist = Math.abs(b.top + b.height / 2 - mid);
+            if (dist < bestDist) { bestDist = dist; best = r; }
+          });
+          const within = best && bestDist < best.getBoundingClientRect().height;
+          rows.forEach((r) => r.classList.toggle('is-active', within && r === best));
         });
-        const within = best && bestDist < best.getBoundingClientRect().height;
-        rows.forEach((r) => r.classList.toggle('is-active', within && r === best));
       };
       window.addEventListener('scroll', () => {
         if (!rowTick) { rowTick = true; requestAnimationFrame(updateRows); }
