@@ -10,17 +10,21 @@
 
   const LINE_ID = '@308fmkzm';
   const LINE_URL = 'https://lin.ee/NoOppDc';
+  // 項目は晴さんのセッションで使っているバランスホイール（10項目）＋恋愛
   const AREAS = [
-    { en: 'CAREER', ja: '仕事', full: '仕事・キャリア' },
-    { en: 'LOVE', ja: '恋愛', full: '恋愛・パートナーシップ', love: true },
-    { en: 'HEALTH', ja: '健康', full: '健康・身体' },
-    { en: 'MONEY', ja: 'お金', full: 'お金' },
+    { en: 'WORK', ja: '仕事', full: '仕事' },
     { en: 'FAMILY', ja: '家族', full: '家族' },
+    { en: 'LOVE', ja: '恋愛', full: '恋愛・パートナーシップ', love: true },
     { en: 'RELATIONS', ja: '人間関係', full: '人間関係' },
-    { en: 'GROWTH', ja: '学び', full: '学び・自己成長' },
-    { en: 'PLAY', ja: '遊び', full: '趣味・遊び' },
+    { en: 'INTELLECT', ja: '知性', full: '知性' },
+    { en: 'BODY', ja: '肉体', full: '肉体' },
+    { en: 'MIND', ja: '精神', full: '精神' },
+    { en: 'HOBBY', ja: '趣味', full: '趣味' },
+    { en: 'BEAUTY', ja: '美容', full: '美容' },
+    { en: 'SOCIAL', ja: '社会貢献', full: '社会貢献' },
+    { en: 'FINANCE', ja: 'ファイナンス', full: 'ファイナンス' },
   ];
-  const SAMPLE = [7, 4, 8, 5, 7, 6, 5, 6];
+  const SAMPLE = [6, 7, 4, 5, 4, 8, 5, 7, 4, 3, 5];
   const N = AREAS.length;
   const R = 150; // 満足度10のときの半径
   const STEP = R / 10;
