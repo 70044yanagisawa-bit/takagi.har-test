@@ -9,7 +9,7 @@
   if (!root) return;
 
   const LINE_ID = '@308fmkzm';
-  const LINE_URL = 'https://lin.ee/NoOppDc';
+  const LINE_URL = 'https://line-harness.mgr-lab.workers.dev/r/dashboard?account=2011827927';
   // 項目は晴さんのセッションで使っているバランスホイール（10項目）。
   // 「家族・パートナー」は恋愛コーチングへの入口なので色で強調する
   const AREAS = [
