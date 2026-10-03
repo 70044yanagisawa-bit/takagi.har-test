@@ -2,13 +2,12 @@
    バランスホイール
    - 画面に入ると、サンプルの満足度が中心から伸びる
    - 円をタップ／ドラッグ、またはスライダーで各領域の満足度（1〜10）をつけられる
-   - つけた結果は、公式LINEへのメッセージとしてそのまま送れる
+   - ボタンから公式LINE（計測用リンク）へ進める
    ========================================================= */
 (() => {
   const root = document.getElementById('wheel');
   if (!root) return;
 
-  const LINE_ID = '@308fmkzm';
   const LINE_URL = 'https://line-harness.mgr-lab.workers.dev/r/hp-goal2';
   // 項目は晴さんのセッションで使っているバランスホイール（10項目）。
   // 「家族・パートナー」は恋愛コーチングへの入口なので色で強調する
@@ -166,16 +165,10 @@
   svg.addEventListener('pointermove', (e) => { if (dragging) pick(e); });
   ['pointerup', 'pointercancel'].forEach((t) => svg.addEventListener(t, () => { dragging = false; }));
 
-  /* ---------- 結果をLINEで送る ---------- */
-  // スマホでは、公式LINEのトーク画面を結果の文面が入った状態で開く
+  /* ---------- 公式LINEへ ---------- */
+  // PC・スマホとも、友だち追加の計測用リンク（hp-goal2）を開く
   const send = document.getElementById('wheelSend');
-  const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
-  const updateSend = () => {
-    if (!isMobile) { send.href = LINE_URL; return; }
-    const lines = AREAS.map((a, i) => `${a.full}：${target[i]}`).join('\n');
-    const text = `バランスホイールの結果です。\n${lines}\n合計：${sum(target)} / ${N * 10}\n\n相談したいこと：`;
-    send.href = `https://line.me/R/oaMessage/${encodeURIComponent(LINE_ID)}/?${encodeURIComponent(text)}`;
-  };
+  const updateSend = () => { send.href = LINE_URL; };
 
   document.getElementById('wheelReset').addEventListener('click', () => {
     SAMPLE.forEach((v, i) => { target[i] = v; });
