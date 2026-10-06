@@ -1,4 +1,18 @@
-# Cloudflare Pages：CSS・JSは毎回新しい版があるか確認させる（古いファイルが使われ続けないように）
+# Cloudflare Pages：すべてのページに付けるセキュリティ設定
+# - Content-Security-Policy：読み込んでよい場所を、自分のサイト・Googleフォント・Cloudflareのアクセス解析だけに限る
+#   （外部サイトを追加するときは、ここにも追記が必要）
+# - frame-ancestors / X-Frame-Options：他のサイトに埋め込まれて、なりすましに使われるのを防ぐ
+# - Strict-Transport-Security：常に暗号化した通信（https）で開かせる
+# - Permissions-Policy：カメラ・マイク・位置情報などを使わせない
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src 'self' https://cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; object-src 'none'; upgrade-insecure-requests
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+
+# CSS・JSは毎回新しい版があるか確認させる（古いファイルが使われ続けないように）
 /css/*
   Cache-Control: no-cache
 /js/*
