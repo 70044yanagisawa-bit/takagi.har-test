@@ -65,7 +65,7 @@
   const hero = $('.hero');
   const startHero = () => {
     document.body.classList.remove('is-loading');
-    hero.classList.add('is-in');
+    if (hero) hero.classList.add('is-in');
   };
   if (reduced || !opening) {
     startHero();
@@ -153,7 +153,8 @@
   let lastY = window.scrollY;
   const updateHeader = () => {
     const y = window.scrollY;
-    const heroEnd = hero.offsetHeight - 80;
+    // ファーストビューがないページ（プライバシーポリシーなど）は、最初から白いヘッダーにする
+    const heroEnd = hero ? hero.offsetHeight - 80 : -1;
     header.classList.toggle('is-solid', y > heroEnd);
     header.classList.toggle('is-hidden', y > heroEnd && y > lastY + 2 && !document.body.classList.contains('is-menu-open'));
     if (Math.abs(y - lastY) > 2) lastY = y;
@@ -240,7 +241,7 @@
       updateFloat();
     });
     hideZones.forEach((z) => zoneIo.observe(z));
-    const updateFloat = () => lineFloat.classList.toggle('is-show', window.scrollY > hero.offsetHeight * .8 && visible.size === 0);
+    const updateFloat = () => lineFloat.classList.toggle('is-show', window.scrollY > (hero ? hero.offsetHeight : 0) * .8 && visible.size === 0);
     window.addEventListener('scroll', updateFloat, { passive: true });
     updateFloat();
   }
