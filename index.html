@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20261007">
+  <link rel="stylesheet" href="css/style.css?v=20261010">
 </head>
 <body class="is-loading">
 
@@ -41,7 +41,7 @@
       <li><a href="#program"><span class="nav__en">PROGRAM</span><span class="nav__ja">プログラム</span></a></li>
       <li><a href="#profile"><span class="nav__en">PROFILE</span><span class="nav__ja">プロフィール</span></a></li>
       <li><a href="#message"><span class="nav__en">MESSAGE</span><span class="nav__ja">メッセージ</span></a></li>
-      <li><a href="love/index.html"><span class="nav__en">LOVE</span><span class="nav__ja">恋愛コーチング</span></a></li>
+      <li><a href="#services"><span class="nav__en">SERVICES</span><span class="nav__ja">専門コーチング</span></a></li>
       <li class="nav__sp-line"><a href="https://line-harness.mgr-lab.workers.dev/r/hp-kyotu" target="_blank" rel="noopener"><span class="nav__en">CONTACT</span><span class="nav__ja">公式LINE</span></a></li>
     </ul>
   </nav>
@@ -201,20 +201,29 @@
     </div>
   </section>
 
-  <!-- ============ LOVE（恋愛コーチングへの入口） ============ -->
-  <section class="love-teaser" id="love">
-    <div class="wrap love-teaser__inner">
-      <div>
-        <p class="love-teaser__label" data-reveal>SPECIALIZED COACHING</p>
-        <p class="love-teaser__title" data-reveal-parent>
-          <span class="mask"><span>LOVE &amp;</span></span>
-          <span class="mask"><span>PARTNERSHIP</span></span>
-        </p>
+  <!-- ============ SERVICES（専門コーチングへの入口） ============ -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="heading heading--light">
+        <p class="heading__en js-letters">SPECIALIZED COACHING</p>
+        <h2 class="heading__ja" data-reveal>専門コーチング</h2>
       </div>
-      <div class="love-teaser__body">
-        <h2 class="love-teaser__ja" data-reveal>恋愛・パートナーシップに特化した<br>コーチングも行っています。</h2>
-        <p data-reveal>人生の領域の中でも「家族・パートナー」、とくに恋愛・パートナーシップは、特化したコーチングを提供しています。なぜ恋愛コーチをやるのか、その想いと進め方はこちらから。</p>
-        <a href="love/index.html" class="love-btn" data-reveal><span>恋愛コーチングを見る</span><span class="love-btn__arrow" aria-hidden="true">→</span></a>
+      <p class="services__lead" data-reveal>同じ4つのステップを、人生の特定の領域に絞って深める専門コーチングも行っています。</p>
+      <div class="services__list">
+        <a href="love/index.html" class="service-card service-card--love" data-reveal>
+          <p class="service-card__area">家族・パートナーの領域</p>
+          <p class="service-card__title">LOVE &amp;<br>PARTNERSHIP</p>
+          <p class="service-card__copy">恋愛も、人生の大切な目標のひとつ。</p>
+          <p class="service-card__text">自分の恋愛パターンを知ることから、出会い・パートナーとの理想の関係性まで。恋愛・パートナーシップに特化したコーチングです。</p>
+          <p class="service-card__more"><span>恋愛コーチングを見る</span><span aria-hidden="true">→</span></p>
+        </a>
+        <a href="fitness/index.html" class="service-card service-card--fitness" data-reveal>
+          <p class="service-card__area">身体の領域</p>
+          <p class="service-card__title">BODY &amp;<br>MIND</p>
+          <p class="service-card__copy">身体を変えて、現実を動かす。</p>
+          <p class="service-card__text">身体を土台に、呼吸・感情・思考・信念までアプローチ。自分自身が心から惚れる身体をつくるパーソナルプログラムです。</p>
+          <p class="service-card__more"><span>フィットネスコーチングを見る</span><span aria-hidden="true">→</span></p>
+        </a>
       </div>
     </div>
   </section>
@@ -346,6 +355,7 @@
         <li><a href="#profile">プロフィール</a></li>
         <li><a href="#message">メッセージ</a></li>
         <li><a href="love/index.html">恋愛コーチング</a></li>
+        <li><a href="fitness/index.html">フィットネスコーチング</a></li>
         <li><a href="https://line-harness.mgr-lab.workers.dev/r/hp-kyotu" target="_blank" rel="noopener">公式LINE ↗</a></li>
         <li><a href="https://www.instagram.com/hal.takagi/" target="_blank" rel="noopener">Instagram ↗</a></li>
         <li><a href="privacy/index.html" class="footer__legal">プライバシーポリシー</a></li>
