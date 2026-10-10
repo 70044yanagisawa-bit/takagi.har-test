@@ -965,6 +965,8 @@ body.page-fitness {
 .fit-themes { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid rgba(255,255,255,.2); }
 .fit-themes li { padding: 44px 40px 44px 0; border-bottom: 1px solid rgba(255,255,255,.2); }
 .fit-themes li:nth-child(even) { padding: 44px 0 44px 40px; border-left: 1px solid rgba(255,255,255,.2); }
+.fit-themes__head { display: flex; align-items: baseline; gap: 20px; }
+.fit-themes__en { font-family: var(--en); font-weight: 300; font-size: clamp(26px, 2.6vw, 36px); letter-spacing: .08em; color: var(--white); line-height: 1; }
 .fit-themes h3 { margin: 18px 0 12px; font-size: clamp(18px, 1.8vw, 23px); font-weight: 500; letter-spacing: .1em; color: var(--white); }
 .fit-themes p { font-size: 14px; color: rgba(255,255,255,.72); }
 
