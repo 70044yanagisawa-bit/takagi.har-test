@@ -10,13 +10,13 @@
 
   const LINE_URL = 'https://line-harness.mgr-lab.workers.dev/r/hp-goal2';
   // 項目は晴さんのセッションで使っているバランスホイール（10項目）。
-  // 「家族・パートナー」は恋愛コーチングへの入口なので色で強調する
+  // accent：オレンジで強調する領域（「家族・パートナー」は恋愛コーチングへの入口、「肉体」はフィットネスコーチングへの入口）
   const AREAS = [
     { en: 'WORK', ja: '仕事', full: '仕事' },
-    { en: 'FAMILY & PARTNER', ja: '家族・', ja2: 'パートナー', full: '家族・パートナー', love: true },
+    { en: 'FAMILY & PARTNER', ja: '家族・', ja2: 'パートナー', full: '家族・パートナー', accent: true },
     { en: 'RELATIONS', ja: '人間関係', full: '人間関係' },
     { en: 'INTELLECT', ja: '知性', full: '知性' },
-    { en: 'BODY', ja: '肉体', full: '肉体' },
+    { en: 'BODY', ja: '肉体', full: '肉体', accent: true },
     { en: 'MIND', ja: '精神', full: '精神' },
     { en: 'HOBBY', ja: '趣味', full: '趣味' },
     { en: 'BEAUTY', ja: '美容', full: '美容' },
@@ -62,12 +62,12 @@
     const [x, y] = pt(i * 360 / N, R);
     el('line', { x1: 0, y1: 0, x2: x.toFixed(2), y2: y.toFixed(2) }, grid);
   }
-  const fills = AREAS.map((a, i) => el('path', { class: 'wheel__fill' + (a.love ? ' is-love' : ''), 'data-i': i }, svg));
+  const fills = AREAS.map((a, i) => el('path', { class: 'wheel__fill' + (a.accent ? ' is-love' : ''), 'data-i': i }, svg));
   const labels = AREAS.map((a, i) => {
     const mid = (i + .5) * 360 / N;
     // 2行のラベル（家族・／パートナー）は、扇形と重ならないよう少し外側に置く
     const [x, y] = pt(mid, R + (a.ja2 ? 52 : 42));
-    const g = el('g', { class: 'wheel__label' + (a.love ? ' is-love' : ''), transform: `translate(${x.toFixed(1)} ${y.toFixed(1)})` }, svg);
+    const g = el('g', { class: 'wheel__label' + (a.accent ? ' is-love' : ''), transform: `translate(${x.toFixed(1)} ${y.toFixed(1)})` }, svg);
     el('text', { class: 'wheel__en', y: a.ja2 ? -18 : -8 }, g).textContent = a.en;
     const ja = el('text', { class: 'wheel__ja', y: a.ja2 ? 2 : 12 }, g);
     ja.textContent = a.ja;
@@ -80,7 +80,7 @@
   const sliderBox = document.getElementById('wheelSliders');
   const inputs = AREAS.map((a, i) => {
     const row = document.createElement('label');
-    row.className = 'wheel-slider' + (a.love ? ' is-love' : '');
+    row.className = 'wheel-slider' + (a.accent ? ' is-love' : '');
     row.innerHTML = `<span class="wheel-slider__name">${a.full}</span>`;
     const input = document.createElement('input');
     Object.assign(input, { type: 'range', min: 1, max: 10, step: 1, value: SAMPLE[i] });
