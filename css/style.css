@@ -1030,7 +1030,7 @@ body.page-fitness {
    トップ：SERVICES（専門コーチングの入口カード）
    ========================================================= */
 .services { padding: 170px 0; background: var(--black); color: var(--white); }
-.services__lead { max-width: 640px; margin-bottom: 64px; color: rgba(255,255,255,.78); }
+.services__lead { margin-bottom: 64px; color: rgba(255,255,255,.78); word-break: auto-phrase; text-wrap: pretty; }
 .services__list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .service-card {
   position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 460px; padding: 48px 44px;
