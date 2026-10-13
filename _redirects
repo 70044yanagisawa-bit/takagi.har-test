@@ -1,0 +1,7 @@
+# Cloudflare Pages：短いURLから転送する
+# 公式LINE（Lハーネス）の友だち追加リンクを、HPのドメインで配れるようにする
+#   例）https://haltakagi.com/line/insta → https://line-harness.mgr-lab.workers.dev/r/insta
+#   /line/ のあとは、Lハーネスの「リファラルリンク」の ref_code をそのまま入れる
+#   （リファラルリンクを新しく作れば、ここを変えなくてもすぐ使える）
+# 302（一時的な転送）にしておくと、あとで転送先を変えてもブラウザに古い転送先が残らない
+/line/*  https://line-harness.mgr-lab.workers.dev/r/:splat  302
